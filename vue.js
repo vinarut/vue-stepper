@@ -53,7 +53,7 @@ const App = {
   computed: {
     currentStep() {
       return this.steps[
-        this.isFinish ? this.steps.length - 1 : this.activeIndex
+        this.isFinished ? this.steps.length - 1 : this.activeIndex
       ]
     },
 
@@ -61,8 +61,12 @@ const App = {
       return this.activeIndex !== 0
     },
 
-    isFinish() {
-      return this.activeIndex >= this.steps.length
+    isFinished() {
+      return this.activeIndex === this.steps.length
+    },
+
+    isLastStep() {
+      return this.activeIndex === this.steps.length - 1
     },
   },
 }

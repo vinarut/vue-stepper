@@ -29,13 +29,12 @@
               <span>{{ idx + 1 }}</span> {{ step.title }}
             </li>
           </ul>
-          <div v-if="!isFinish">
+          <div v-if="!isFinished">
             <button class="btn" :disabled="!canPrev" @click="prev">
               Назад
             </button>
             <button class="btn primary" @click="nextOfFinish">
-              <span v-if="!(activeIndex === steps.length - 1)">Вперед</span>
-              <span v-else>Закончить</span>
+              {{ isLastStep ? 'Закончить' : 'Вперед' }}
             </button>
           </div>
           <div v-else>
